@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <table class="table table-responsive table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Manager</th>
+                <th>Salary</th>
+                <th>Commission</th>
+                <th>Department</th>
+                <th>Image</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="e : ${elist}">
+                <td th:text="${e.name}"></td>
+                <td th:text="${e.manager}"></td>
+                <td th:text="${e.salary}"></td>
+                <td th:text="${e.commission}"></td>
+                <td th:text="${e.departmentName}"></td>
+                <td><img th:src="@{${'/images/' + e.image }}" width="120"/>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "hdfs.path",
+      "type": "java.lang.String",
+      "description": "Default hdfs directory path."
+  }
+] }
