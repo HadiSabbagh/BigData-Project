@@ -1,6 +1,5 @@
 package org.bigData.Services.Spark;
 
-import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
 import org.springframework.stereotype.Service;
 
