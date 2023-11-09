@@ -17,6 +17,7 @@
         <table class="table table-responsive table-bordered table-striped">
             <thead>
             <tr>
+                <th>EmployeeId</th>
                 <th>Employee</th>
                 <th>Manager</th>
                 <th>Salary</th>
@@ -27,12 +28,13 @@
             </thead>
             <tbody>
             <tr th:each="e : ${elist}">
+                <td th:text="${e.employeeId}"></td>
                 <td th:text="${e.name}"></td>
                 <td th:text="${e.manager}"></td>
                 <td th:text="${e.salary}"></td>
                 <td th:text="${e.commission}"></td>
                 <td th:text="${e.departmentName}"></td>
-                <td><img th:src="@{${'/images/' + e.image }}" width="120"/>
+                <td><img th:src="@{'http://localhost:9870/webhdfs/v1/user/hadoop/images/' + ${e.image} +  '?op=OPEN' }" width="120"/>
                 </td>
 
             </tr>
@@ -41,7 +43,6 @@
 
 
     </div>
-</div>
 </div>
 
 

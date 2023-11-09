@@ -3,14 +3,15 @@ package org.bigData.Entities;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 @Data
-public class Employee implements Serializable {
+public class EmployeeDTO implements Serializable {
     Integer EmployeeId;
     String Name;
-    Integer Manager;
+    String Manager;
     Integer Salary;
     Integer Commission;
-    Integer Department;
+    String DepartmentName;
     String Image;
 }
