@@ -66,15 +66,16 @@ public class HomeController {
             Dataset<Row> df1 = emp.as("df1");
             Dataset<Row> df2 = emp.as("df2");
             emp = df1.join(df2, col("df1.empno").equalTo(df2.col("mgr")), "right")
-                    .select(col("df2.empno"), col("df2.ename"), col("df1.ename").as("mgr"), col("df2.sal"),
+                    .select(col("df2.empno"), col("df2.ename"), col("df1.ename").as("mgr"),col("df2.job") ,col("df2.sal"),
                             col("df2.comm"), col("df2.deptno"), col("df2.img"));
             emp.show();
             //Join emp and dept
-            Dataset<Row> emp_dept = emp.join(dept, "deptno").select("empno", "ename", "mgr", "sal", "comm", "dname", "img");
+            Dataset<Row> emp_dept = emp.join(dept, "deptno").select("empno", "ename", "job", "mgr", "sal", "comm", "dname", "img");
 
             //Modify column names
             emp_dept = emp_dept.withColumnRenamed("ename", "Employee")
                     .withColumnRenamed("empno", "EmployeeId")
+                    .withColumnRenamed("job", "Job")
                     .withColumnRenamed("mgr", "Manager")
                     .withColumnRenamed("sal", "Salary")
                     .withColumnRenamed("comm", "Commission")
@@ -87,13 +88,14 @@ public class HomeController {
                 EmployeeDTO employeeDTO = new EmployeeDTO();
                 employeeDTO.setEmployeeId(v1.getInt(0));
                 employeeDTO.setName(v1.getString(1));
-                employeeDTO.setManager(v1.getString(2));
-                employeeDTO.setSalary(v1.getInt(3));
-                if (!v1.isNullAt(4)) {
-                    employeeDTO.setCommission(v1.getInt(4));
+                employeeDTO.setJob(v1.getString(2));
+                employeeDTO.setManager(v1.getString(3));
+                employeeDTO.setSalary(v1.getInt(4));
+                if (!v1.isNullAt(5)) {
+                    employeeDTO.setCommission(v1.getInt(5));
                 }
-                employeeDTO.setDepartmentName(v1.getString(5));
-                employeeDTO.setImage(v1.getString(6));
+                employeeDTO.setDepartmentName(v1.getString(6));
+                employeeDTO.setImage(v1.getString(7));
                 return employeeDTO;
             }).collect();
 

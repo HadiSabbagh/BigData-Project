@@ -12,13 +12,14 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
+<div class="">
+    <div class="">
         <table class="table table-responsive table-bordered table-striped">
             <thead>
             <tr>
                 <th>EmployeeId</th>
                 <th>Employee</th>
+                <th>Job</th>
                 <th>Manager</th>
                 <th>Salary</th>
                 <th>Commission</th>
@@ -30,13 +31,13 @@
             <tr th:each="e : ${elist}">
                 <td th:text="${e.employeeId}"></td>
                 <td th:text="${e.name}"></td>
+                <td th:text="${e.job}"></td>
                 <td th:text="${e.manager}"></td>
                 <td th:text="${e.salary}"></td>
                 <td th:text="${e.commission}"></td>
                 <td th:text="${e.departmentName}"></td>
                 <td><img th:src="@{'http://localhost:9870/webhdfs/v1/user/hadoop/images/' + ${e.image} +  '?op=OPEN' }" width="120"/>
                 </td>
-
             </tr>
             </tbody>
         </table>

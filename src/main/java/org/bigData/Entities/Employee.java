@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class Employee implements Serializable {
     Integer EmployeeId;
     String Name;
+    String Job;
     Integer Manager;
     Integer Salary;
     Integer Commission;
